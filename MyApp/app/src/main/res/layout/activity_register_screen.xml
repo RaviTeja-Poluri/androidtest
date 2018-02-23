@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_screen"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    tools:context="app.ravi.com.myapp.activity.RegisterScreen">
+
+    <EditText
+        android:id="@+id/et_reg_uname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:hint="username"
+        android:inputType="text"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_reg_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_reg_uname"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="password"
+        android:inputType="numberPassword"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_reg_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_reg_pwd"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="mobile"
+        android:inputType="number"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_reg_loc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_reg_mobile"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="location"
+        android:inputType="text"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_reg_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_reg_loc"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="mobile"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_reg_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_reg_age"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="20dp"
+        android:text="signup"
+        android:textAlignment="center" />
+
+</RelativeLayout>

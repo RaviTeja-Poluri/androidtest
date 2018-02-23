@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login_screen"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context="app.ravi.com.myapp.activity.LoginScreen">
+
+    <EditText
+        android:id="@+id/et_login_uname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        android:inputType="text"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_login_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:inputType="numberPassword"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_login_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Login"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="90">
+
+        <Button
+            android:id="@+id/btn_login_register"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_weight="30"
+            android:text="Register"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_login_forgotpassword"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_weight="30"
+            android:text="Forgot Password"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_login_guest"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_weight="30"
+            android:text="Guest"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <!-- <Button
+         android:id="@+id/btn_login_forgot"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Forgot Password"
+         android:textAlignment="center" />-->
+
+</LinearLayout>
