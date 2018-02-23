@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.EditText;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 import app.ravi.com.myapp.R;
 import app.ravi.com.myapp.adapter.PostFeedsAdaptor;
@@ -24,7 +25,13 @@ public class PostFeeds extends AppCompatActivity {
             userName = "Guest";
         }
 
-
+        final EditText postText = findViewById(R.id.post);
+        postText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postText.setFocusableInTouchMode(true);
+            }
+        });
         Feed user = new Feed();
         user.setUserName("ravi");
         user.setLikeCout(5);

@@ -8,6 +8,7 @@
     tools:context="app.ravi.com.myapp.activity.PostFeeds">
 
     <EditText
+        android:id="@+id/post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,7 +17,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/edittextshape"
-        android:focusableInTouchMode="true"
+        android:focusableInTouchMode="false"
         android:hint="I am thinking ..."
         android:inputType="text|textMultiLine"
         android:maxLines="5"
