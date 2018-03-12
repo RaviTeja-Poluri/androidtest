@@ -20,9 +20,9 @@ public class LoginBoardScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_board_screen);
 
-        signup = (Button) findViewById(R.id.btn_signup);
-        login = (Button) findViewById(R.id.btn_login);
-        guest = (Button) findViewById(R.id.btn_guest);
+        signup = findViewById(R.id.btn_signup);
+        login = findViewById(R.id.btn_login);
+        guest = findViewById(R.id.btn_guest);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,6 @@ public class LoginBoardScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 login.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
-
 //                Toast.makeText(getApplicationContext(), "login", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
                 startActivity(intent);

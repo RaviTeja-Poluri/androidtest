@@ -14,8 +14,12 @@ public class User {
     private String id;
     @SerializedName("name")
     private String name;
+    @SerializedName("userName")
+    private String userName;
     @SerializedName("mobile")
     private Long mobile;
+    @SerializedName("email")
+    private String email;
     @SerializedName("location")
     private String location;
     @SerializedName("password")
@@ -113,5 +117,21 @@ public class User {
 
     public void setFeeds(List<Feed> feeds) {
         this.feeds = feeds;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

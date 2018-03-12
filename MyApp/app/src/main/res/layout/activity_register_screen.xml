@@ -8,7 +8,7 @@
     tools:context="app.ravi.com.myapp.activity.RegisterScreen">
 
     <EditText
-        android:id="@+id/et_reg_uname"
+        android:id="@+id/reg_uname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -19,10 +19,10 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/et_reg_pwd"
+        android:id="@+id/reg_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_reg_uname"
+        android:layout_below="@id/reg_uname"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="password"
@@ -30,10 +30,10 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/et_reg_mobile"
+        android:id="@+id/reg_mobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_reg_pwd"
+        android:layout_below="@id/reg_pwd"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="mobile"
@@ -41,10 +41,21 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/et_reg_loc"
+        android:id="@+id/reg_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_reg_mobile"
+        android:layout_below="@id/reg_mobile"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Mail Id"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/reg_loc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_email"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="location"
@@ -52,22 +63,22 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/et_reg_age"
+        android:id="@+id/reg_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_reg_loc"
+        android:layout_below="@id/reg_loc"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="mobile"
+        android:hint="age"
         android:inputType="number"
         android:maxLength="3"
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/btn_reg_submit"
+        android:id="@+id/reg_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_reg_age"
+        android:layout_below="@id/reg_age"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingRight="20dp"

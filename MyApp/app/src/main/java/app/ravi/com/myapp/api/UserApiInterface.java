@@ -18,7 +18,7 @@ public interface UserApiInterface {
     Call<User> validateUser(@Query("name") String uname, @Query("pwd") String pwd);
 
     @POST("user")
-    Call<User> getMovieDetails(@Body User user);
+    Call<User> saveUser(@Body User user);
 
     //@Header for adding header
 
