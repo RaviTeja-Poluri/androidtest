@@ -4,7 +4,6 @@
     android:id="@+id/activity_login_board_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blueimage"
     android:gravity="bottom"
     android:orientation="vertical"
     tools:context="app.ravi.com.myapp.activity.LoginBoardScreen">
@@ -18,7 +17,7 @@
         android:layout_marginRight="25dp"
         android:background="@drawable/button_style"
         android:text="SignUp"
-        android:textColor="#272b2b"
+        android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
     <Button
@@ -30,7 +29,7 @@
         android:layout_marginRight="25dp"
         android:background="@drawable/button_style"
         android:text="Login"
-        android:textColor="#272b2b"
+        android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
     <Button
@@ -42,6 +41,6 @@
         android:layout_marginRight="25dp"
         android:background="@drawable/button_style"
         android:text="Guest"
-        android:textColor="#272b2b"
+        android:textColor="#FFFFFF"
         android:textSize="16sp" />
 </LinearLayout>

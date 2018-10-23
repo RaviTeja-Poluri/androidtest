@@ -19,11 +19,12 @@ public class LoginBoardScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_board_screen);
-
+//TODO : implement card vire for list of states
+        //TODO : implement side menu (navigation drawer)
+        //TODO : implement profile update and pic upload functionality
         signup = findViewById(R.id.btn_signup);
         login = findViewById(R.id.btn_login);
         guest = findViewById(R.id.btn_guest);
-
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

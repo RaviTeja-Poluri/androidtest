@@ -12,7 +12,7 @@
         android:right="1dp"
         android:top="1dp"
         android:bottom="1dp"/>
-
-    <solid android:color="#2abab5"/>
+<!--#2abab5-->
+    <solid android:color="#68a2ff"/>
 
 </shape>

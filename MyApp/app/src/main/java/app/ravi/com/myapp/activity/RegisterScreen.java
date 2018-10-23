@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import app.ravi.com.myapp.R;
 import app.ravi.com.myapp.api.UserApiInterface;
+import app.ravi.com.myapp.model.Role;
 import app.ravi.com.myapp.model.User;
 import app.ravi.com.myapp.retro.RetroClient;
 import retrofit2.Call;
@@ -29,30 +30,27 @@ public class RegisterScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_screen);
-
         final RelativeLayout mainLayout = findViewById(activity_register_screen);
         Button submit = findViewById(R.id.reg_signup);
-        final EditText uname = findViewById(R.id.reg_uname);
+        final EditText fulName = findViewById(R.id.reg_name);
         final EditText pwd = findViewById(R.id.reg_pwd);
         final EditText mail = findViewById(R.id.reg_email);
         final EditText mobile = findViewById(R.id.reg_mobile);
-        final EditText loc = findViewById(R.id.reg_loc);
-        final EditText age = findViewById(R.id.reg_age);
+
+        /*
+         * userName == email
+         */
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isValidRegistration(uname, pwd, mobile, mail)) {
+                if (isValidRegistration(fulName, pwd, mobile, mail)) {
                     User user = new User();
-                    user.setUserName(uname.getText().toString());
+                    user.setName(fulName.getText().toString());
                     user.setPassword(pwd.getText().toString());
                     user.setEmail(mail.getText().toString());
+                    user.setUserName(mail.getText().toString());
                     user.setMobile(Long.parseLong(mobile.getText().toString()));
-                    if (!age.getText().toString().isEmpty()) {
-                        user.setAge(Integer.parseInt(age.getText().toString()));
-                    }
-                    if (!loc.getText().toString().isEmpty()) {
-                        user.setLocation(loc.getText().toString());
-                    }
+                    user.setRole(Role.USER);
                     saveUser(user);
                 }
             }
@@ -67,13 +65,18 @@ public class RegisterScreen extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Toast.makeText(getApplicationContext(), response.body().toString(), Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), LoginBoardScreen.class);
+                Intent intent = new Intent(getApplicationContext(), UploadPicActivity.class);
+                intent.putExtra("user",response.body().getId());
                 startActivity(intent);
                 finish();
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+
+                Intent intent = new Intent(getApplicationContext(), UploadPicActivity.class);
+                startActivity(intent);
+
                 t.printStackTrace();
                 Toast.makeText(getApplicationContext(), "unknown error occurs please try again after sometime", Toast.LENGTH_LONG).show();
             }
@@ -95,7 +98,7 @@ public class RegisterScreen extends AppCompatActivity {
         if (TextUtils.isEmpty(uname.getText().toString())) {
             valid = false;
             uname.setAnimation(shake);
-            uname.setError("user name is required", icon);
+            uname.setError("name is required", icon);
         }
         if (TextUtils.isEmpty(pwd.getText().toString())) {
             valid = false;

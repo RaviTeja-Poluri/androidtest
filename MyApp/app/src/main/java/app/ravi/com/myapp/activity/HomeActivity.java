@@ -43,8 +43,8 @@ public class HomeActivity extends AppCompatActivity {
         feeds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //get user feeds_list and their friend feeds_list
-                Intent intent = new Intent(getApplicationContext(), PostFeeds.class);
+                //get user states_list and their friend states_list
+                Intent intent = new Intent(getApplicationContext(), StatesList.class);
                 intent.putExtra("uname", userName);
                 startActivity(intent);
             }

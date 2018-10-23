@@ -16,7 +16,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1500);
+                    Thread.sleep(5000);
                     Intent intent = new Intent(getApplicationContext(), LoginBoardScreen.class);
                     startActivity(intent);
                     finish();

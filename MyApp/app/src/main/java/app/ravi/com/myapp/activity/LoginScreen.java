@@ -10,6 +10,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import app.ravi.com.myapp.R;
+import app.ravi.com.myapp.api.UserApiInterface;
+import app.ravi.com.myapp.model.User;
+import app.ravi.com.myapp.retro.RetroClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -27,24 +33,24 @@ public class LoginScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String user = uname.getText().toString();
-                final int password = Integer.parseInt(pwd.getText().toString());
-//                UserApiInterface apiService =
-//                        RetroClient.getRetroClient().create(UserApiInterface.class);
-//                Call<User> validatedUser = apiService.validateUser(user, String.valueOf(password));
-//                validatedUser.enqueue(new Callback<User>() {
-//                    @Override
-//                    public void onResponse(Call<User> call, Response<User> response) {
-//                        Toast.makeText(getApplicationContext(), response.body().toString(), Toast.LENGTH_LONG).show();
-//                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-//                        intent.putExtra("uname", user);
-//                        startActivity(intent);
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<User> call, Throwable t) {
-//                        Toast.makeText(getApplicationContext(), "unknown error occurs please try again after sometime", Toast.LENGTH_LONG).show();
-//                    }
-//                });
+                final String password =pwd.getText().toString();
+  /*              UserApiInterface apiService =
+                        RetroClient.getRetroClient().create(UserApiInterface.class);
+                Call<User> validatedUser = apiService.validateUser(user, String.valueOf(password));
+                validatedUser.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        Toast.makeText(getApplicationContext(), response.body().toString(), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.putExtra("uname", user);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "unknown error occurs please try again after sometime", Toast.LENGTH_LONG).show();
+                    }
+                });*/
 
 
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

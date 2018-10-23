@@ -8,25 +8,37 @@
     tools:context="app.ravi.com.myapp.activity.RegisterScreen">
 
     <EditText
-        android:id="@+id/reg_uname"
+        android:id="@+id/reg_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:hint="username"
+        android:hint="full name"
         android:inputType="text"
+        android:textAlignment="center" />
+
+
+    <EditText
+        android:id="@+id/reg_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Mail Id"
+        android:inputType="textEmailAddress"
         android:textAlignment="center" />
 
     <EditText
         android:id="@+id/reg_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/reg_uname"
+        android:layout_below="@id/reg_email"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="password"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:textAlignment="center" />
 
     <EditText
@@ -40,22 +52,12 @@
         android:inputType="number"
         android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/reg_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/reg_mobile"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Mail Id"
-        android:inputType="textEmailAddress"
-        android:textAlignment="center" />
 
-    <EditText
+<!--    <EditText
         android:id="@+id/reg_loc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/reg_email"
+        android:layout_below="@id/reg_pwd"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="location"
@@ -72,17 +74,16 @@
         android:hint="age"
         android:inputType="number"
         android:maxLength="3"
-        android:textAlignment="center" />
+        android:textAlignment="center" />-->
 
     <Button
         android:id="@+id/reg_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/reg_age"
+        android:layout_below="@id/reg_mobile"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingRight="20dp"
         android:text="signup"
         android:textAlignment="center" />
-
 </RelativeLayout>
