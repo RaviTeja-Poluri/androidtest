@@ -60,15 +60,20 @@ public class RegisterScreen extends AppCompatActivity {
     private void saveUser(User user) {
         UserApiInterface apiService =
                 RetroClient.getRetroClient().create(UserApiInterface.class);
+        System.out.println(user);
         Call<User> validatedUser = apiService.saveUser(user);
         validatedUser.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(getApplicationContext(), response.body().toString(), Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), UploadPicActivity.class);
-                intent.putExtra("user",response.body().getId());
-                startActivity(intent);
-                finish();
+                if (response.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), response.body().toString(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), UploadPicActivity.class);
+                    intent.putExtra("user", response.body().getId());
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "unable to register user", Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
