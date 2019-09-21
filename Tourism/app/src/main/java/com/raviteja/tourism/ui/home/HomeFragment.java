@@ -1,10 +1,11 @@
 package com.raviteja.tourism.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.raviteja.tourism.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new MyAdapter(names));
+        recyclerView.setAdapter(new MyAdapter(names, getContext()));
         return view;
     }
 
@@ -42,22 +44,16 @@ public class HomeFragment extends Fragment {
         private TextView textView1;
         private TextView textView2;
         private TextView textView3;
+        private ImageView imageView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-        }
-
-        public MyViewHolder(LayoutInflater inflater, ViewGroup container) {
-            super(inflater.inflate(R.layout.home_card_view, container, false));
-            if (container != null) {
-                cardView = container.findViewById(R.id.card_view);
-                textView = container.findViewById(R.id.textViewVersion);
-                textView1 = container.findViewById(R.id.textViewVersion1);
-                textView2 = container.findViewById(R.id.textViewVersion2);
-                textView3 = container.findViewById(R.id.textViewVersion3);
-            } else {
-                Log.e("ViewHolder::", "view is null");
-            }
+            cardView = itemView.findViewById(R.id.card_view);
+            textView = itemView.findViewById(R.id.textViewVersion);
+            textView1 = itemView.findViewById(R.id.textViewVersion1);
+            textView2 = itemView.findViewById(R.id.textViewVersion2);
+            textView3 = itemView.findViewById(R.id.textViewVersion3);
+            imageView = itemView.findViewById(R.id.image_view);
         }
     }
 
@@ -109,17 +105,21 @@ public class HomeFragment extends Fragment {
     private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         List<Name> names;
+        TextView textView;
+        Context context;
 
-        public MyAdapter(List<Name> names) {
+        public MyAdapter(List<Name> names, Context context) {
             this.names = names;
+            this.context = context;
         }
 
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
-
-            return new MyViewHolder(inflater, parent);
+            View inflate = inflater.inflate(R.layout.home_card_view, parent, false);
+            textView = inflate.findViewById(R.id.textViewVersion);
+            return new MyViewHolder(inflate);
         }
 
         @Override
@@ -131,6 +131,8 @@ public class HomeFragment extends Fragment {
             holder.textView2.setText(name.getAge());
             holder.textView3.setText(name.getSalary());
 
+            Picasso.with(context).load("https://upload.wikimedia.org/wikipedia/commons/0/05/India_geo_stub.svg")
+                    .resize(50,50).centerCrop().into(holder.imageView);
         }
 
         @Override

@@ -36,7 +36,16 @@
         android:id="@+id/textViewVersion3"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/image_view"
+        android:contentDescription="Image Not Found" />
+
 </androidx.cardview.widget.CardView>
