@@ -1,8 +1,22 @@
 package com.raviteja.tourism.ui.home;
 
-import androidx.lifecycle.LiveData;
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.raviteja.tourism.model.Place;
+import com.raviteja.tourism.retro.RetroClient;
+import com.raviteja.tourism.retro.clients.PlaceClient;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class HomeViewModel extends ViewModel {
 
@@ -13,7 +27,9 @@ public class HomeViewModel extends ViewModel {
         mText.setValue("This is home fragment");
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public Call<List<Place>> getText() {
+        final List<Place> places = new ArrayList<>();
+        PlaceClient placeClient = RetroClient.getRetroClient().create(PlaceClient.class);
+        return placeClient.getPlaces("1");
     }
 }
