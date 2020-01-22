@@ -48,4 +48,17 @@
         android:id="@+id/image_view"
         android:contentDescription="Image Not Found" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sample"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:id="@+id/explore_places"/>
+
 </androidx.cardview.widget.CardView>

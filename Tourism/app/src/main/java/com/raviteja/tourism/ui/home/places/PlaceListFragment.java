@@ -1,28 +1,23 @@
-package com.raviteja.tourism.ui.home;
+package com.raviteja.tourism.ui.home.places;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.raviteja.tourism.R;
 import com.raviteja.tourism.model.Place;
-import com.raviteja.tourism.ui.home.places.PlaceListFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -32,12 +27,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeFragment extends Fragment {
+public class PlaceListFragment extends Fragment {
 
 private static String TAG="Home";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+        PlacesListViewModel homeViewModel = ViewModelProviders.of(this).get(PlacesListViewModel.class);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -71,7 +66,6 @@ private static String TAG="Home";
         private TextView textView1;
         private TextView textView2;
         private TextView textView3;
-        private Button button;
         private ImageView imageView;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -81,7 +75,6 @@ private static String TAG="Home";
             textView1 = itemView.findViewById(R.id.textViewVersion1);
             textView2 = itemView.findViewById(R.id.textViewVersion2);
             textView3 = itemView.findViewById(R.id.textViewVersion3);
-            button = itemView.findViewById(R.id.sample);
             imageView = itemView.findViewById(R.id.image_view);
         }
     }
@@ -103,6 +96,7 @@ private static String TAG="Home";
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             View inflate = inflater.inflate(R.layout.home_card_view, parent, false);
+            textView = inflate.findViewById(R.id.textViewVersion);
             return new MyViewHolder(inflate);
         }
 
@@ -114,15 +108,6 @@ private static String TAG="Home";
             holder.textView1.setText(name.getDescription());
             holder.textView2.setText(String.valueOf(name.getCityId()));
             holder.textView3.setText(String.valueOf(name.getId()));
-            holder.button.setText("explore");
-
-
-            holder.button.setOnClickListener(view -> {
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.attach(new PlaceListFragment());
-                transaction.commit();
-            });
 
        /*     Picasso.with(this.context).load("http://www.pngmart.com/files/7/India-Map-Transparent-PNG.png")
                     .placeholder(R.drawable.ic_menu_gallery).resize(500, 250).centerCrop().into(holder.imageView);
